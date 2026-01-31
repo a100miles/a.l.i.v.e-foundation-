@@ -122,13 +122,13 @@ router.get('/profile', async (req, res) => {
         <body>
             <div class="profile-container">
                 <div class="profile-card">
-                    <h1>Welcome, ${user.name}</h1>
-                    <p>You're successfully logged in</p>
+                    <h1>welcome, ${user.name}</h1>
+                    <p>you're successfully logged in</p>
                     <div class="profile-email">
-                        <strong>Email:</strong> ${user.email}
+                        <strong>email:</strong> ${user.email}
                     </div>
                     <form action="/api/auth/logout" method="POST" style="display: inline;">
-                        <button type="submit" class="logout-btn">Logout</button>
+                        <button type="submit" class="logout-btn">logout</button>
                     </form>
                 </div>
             </div>
