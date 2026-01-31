@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a.l.i.v.e</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/login.html">login</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">sign up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="container w-50">
+            <h1 class="text-center">sign up</h1>
+            
+            <form action="/api/auth/register" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">full name</label>
+                    <input type="text" name="name" class="form-control" placeholder="your full name" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">email address</label>
+                    <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">confirm Password</label>
+                    <input type="password" id="confirm_password" class="form-control" placeholder="••••••••" required>
+                </div>
+                
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">sign up</button>
+                </div>
+                
+                <p class="text-center mt-3 text-muted">
+                    already have an account? <a href="/pages/login.html" class="text-dark">log in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const password = document.getElementById("password");
+        const confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword(){
+            if(password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
